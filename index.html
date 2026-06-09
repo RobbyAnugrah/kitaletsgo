@@ -3,233 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitaletsgo - Open Trip & Rental Outdoor</title>
+    <title>Kitaletsgo.co - Trip & Rental Outdoor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Pengaturan Dasar & Tema Biru */
-        :root {
-            --primary-blue: #0056b3;
-            --secondary-blue: #e6f2ff;
-            --dark-text: #333;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Pengaturan Umum */
+        * {
             margin: 0;
             padding: 0;
-            color: var(--dark-text);
-            line-height: 1.6;
-        }
-        html {
-            scroll-behavior: smooth;
+            box-sizing: border-box;
         }
 
-        /* Navigasi */
-        header {
-            background-color: var(--primary-blue);
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
             color: white;
-            padding: 15px 20px;
-            position: sticky;
+            background-color: #000;
+        }
+
+        /* Background dengan Overlay 50% */
+        .main-background {
+            position: fixed;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        .menu a:hover {
-            color: #b3d4ff;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* GANTI 'trip.jpg' dengan nama file foto pendakian Anda di GitHub */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('foto_trip.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
         }
 
-        /* Konten Utama */
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: auto;
-            padding: 40px 20px;
-        }
-        h2 {
-            color: var(--primary-blue);
-            border-bottom: 2px solid var(--primary-blue);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .bg-light {
-            background-color: var(--secondary-blue);
+            padding: 20px;
         }
 
-        /* Tabel & List */
+        /* Judul Warna Biru Sesuai Permintaan */
+        h1, h2, h3 {
+            color: #3498db; 
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* HALAMAN UTAMA - LOGO & BIODATA */
+        .hero {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .hero img {
+            width: 250px; /* Ukuran Logo */
+            margin-bottom: 30px;
+        }
+
+        .bio-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #3498db;
+        }
+
+        /* JADWAL TRIP */
+        .jadwal-img {
+            width: 100%;
+            border-radius: 15px;
+            border: 3px solid #3498db;
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+        }
+
+        /* PRICELIST TABLE */
+        .price-list-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            overflow-x: auto;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
-            background: white;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
+
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
             text-align: left;
         }
-        th {
-            background-color: var(--primary-blue);
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Tombol WhatsApp */
-        .wa-btn-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .btn-wa {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 18px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-        .btn-wa:hover {
-            background-color: #128C7E;
+        tr:hover {
+            background: rgba(52, 152, 219, 0.2);
         }
 
-        /* Footer */
-        footer {
-            background-color: #003d82;
-            color: white;
-            text-align: center;
+        /* TUTORIAL */
+        .step-card {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
             padding: 20px;
-            margin-top: 40px;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+
+        /* WHATSAPP BUTTON */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #bdc3c7;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">KITALETSGO</div>
-            <div class="menu">
-                <a href="#biodata">Biodata</a>
-                <a href="#pricelist">Pricelist Rental</a>
-                <a href="#jadwal">Jadwal Trip</a>
-                <a href="#tutorial">Cara Pesan</a>
+    <div class="main-background"></div>
+
+    <a href="https://wa.me/6287722863535?text=Halo%20Admin%20Kitaletsgo,%20saya%20ingin%20pesan%20trip/alat%20outdoor" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size: 24px;"></i> Chat Admin
+    </a>
+
+    <div class="container">
+        
+        <section id="home" class="hero">
+            <img src="logo.png" alt="Logo Kitaletsgo.co">
+            <div class="bio-text">
+                <h3>Tentang Kami</h3>
+                <p>Kitaletsgo adalah penyedia layanan jasa perjalanan luar ruang (outdoor) dan pendakian gunung yang berdedikasi memberikan pengalaman eksplorasi alam yang aman, nyaman, dan tak terlupakan. Kami tidak hanya mengorganisir perjalanan ekspedisi, tetapi juga menyediakan penyewaan perlengkapan outdoor berkualitas dengan harga terjangkau.</p>
             </div>
-        </nav>
-    </header>
+        </section>
 
-    <!-- Section Biodata -->
-    <div id="biodata" class="container">
-        <h2>Biodata Kitaletsgo</h2>
-        <p><strong>Kitaletsgo</strong> adalah penyedia layanan jasa perjalanan luar ruang (<i>outdoor</i>) dan pendakian gunung yang berdedikasi memberikan pengalaman eksplorasi alam yang aman, nyaman, dan tak terlupakan. Kami tidak hanya mengorganisir perjalanan ekspedisi, tetapi juga menyediakan penyewaan perlengkapan <i>outdoor</i> berkualitas dengan harga terjangkau.</p>
-    </div>
+        <section id="jadwal">
+            <h2>Jadwal Trip Juli</h2>
+            <img src="jadwal_juli.jpg" alt="Jadwal Kitaletsgo" class="jadwal-img">
+            <p style="text-align: center; margin-top: 15px;">*Klik tombol WhatsApp untuk pendaftaran</p>
+        </section>
 
-    <!-- Section Pricelist Rental -->
-    <div id="pricelist" class="bg-light">
-        <div class="container">
+        <section id="rental">
             <h2>Pricelist Rental Outdoor</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nama Barang</th>
-                        <th>Harga / Hari</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Tenda Dome (Kapasitas 6 Orang)</td>
-                        <td>Rp 60.000</td>
-                    </tr>
-                    <tr>
-                        <td>Sleeping Bag (Polar)</td>
-                        <td>Rp 15.000</td>
-                    </tr>
-                    <tr>
-                        <td>Carrier 60L</td>
-                        <td>Rp 45.000</td>
-                    </tr>
-                    <tr>
-                        <td>Nesting + Kompor Portable</td>
-                        <td>Rp 25.000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Section Jadwal Trip -->
-    <div id="jadwal" class="container">
-        <h2>Jadwal Open Trip</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Destinasi Gunung</th>
-                    <th>Tanggal Pelaksanaan</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Gunung Rinjani (Via Sembalun)</td>
-                    <td>Segera Hadir</td>
-                    <td>Pendaftaran Dibuka</td>
-                </tr>
-                <tr>
-                    <td>Gunung Sindoro</td>
-                    <td>Segera Hadir</td>
-                    <td>Pendaftaran Dibuka</td>
-                </tr>
-                <tr>
-                    <td>Gunung Sumbing</td>
-                    <td>Segera Hadir</td>
-                    <td>Pendaftaran Dibuka</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Section Tutorial Pesan -->
-    <div id="tutorial" class="bg-light">
-        <div class="container">
-            <h2>Tutorial Pemesanan</h2>
-            <ol>
-                <li><strong>Pilih Layanan:</strong> Tentukan apakah Anda ingin mendaftar <i>Open Trip</i> atau menyewa perlengkapan <i>outdoor</i>.</li>
-                <li><strong>Cek Ketersediaan:</strong> Hubungi admin kami melalui WhatsApp untuk mengecek slot trip atau ketersediaan barang.</li>
-                <li><strong>Isi Formulir:</strong> Admin akan memberikan format pemesanan. Silakan isi data diri dan rincian pesanan.</li>
-                <li><strong>Pembayaran:</strong> Lakukan pembayaran DP (Down Payment) ke rekening yang tertera untuk mengamankan pesanan Anda.</li>
-                <li><strong>Konfirmasi:</strong> Kirimkan bukti transfer, dan pesanan Anda otomatis terkonfirmasi!</li>
-            </ol>
-            
-            <div class="wa-btn-container">
-                <!-- Ganti 628XXXXXXXXXX dengan nomor WhatsApp Anda -->
-                <a href="https://wa.me/6281234567890?text=Halo%20Admin%20Kitaletsgo,%20saya%20ingin%20bertanya%20seputar%20trip/rental." class="btn-wa" target="_blank">
-                    Hubungi via WhatsApp
-                </a>
+            <div class="price-list-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jenis Alat</th>
+                            <th>Harga (3 Hari)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tenda Kap 4/5 Double Layer</td><td>Rp 90.000</td></tr>
+                        <tr><td>Carrier 60L</td><td>Rp 50.000</td></tr>
+                        <tr><td>Sleeping Bag</td><td>Rp 30.000</td></tr>
+                        <tr><td>Sepatu Gunung</td><td>Rp 50.000</td></tr>
+                        <tr><td>Kompor Portable</td><td>Rp 25.000</td></tr>
+                        <tr><td>Nesting/Cooking Set</td><td>Rp 25.000</td></tr>
+                        <tr><td>Matras Foil</td><td>Rp 15.000</td></tr>
+                        <tr><td>Tracking Pole</td><td>Rp 20.000</td></tr>
+                        <tr><td>Headlamp</td><td>Rp 25.000</td></tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 Kitaletsgo. All Rights Reserved.</p>
-    </footer>
+        <section id="tutorial">
+            <h2>Cara Memesan</h2>
+            <div class="step-card">
+                <h4>1. Pilih Layanan</h4>
+                <p>Tentukan destinasi trip atau list alat yang ingin disewa.</p>
+            </div>
+            <div class="step-card">
+                <h4>2. Hubungi WhatsApp</h4>
+                <p>Klik tombol WhatsApp di pojok kanan bawah untuk terhubung langsung dengan Admin.</p>
+            </div>
+            <div class="step-card">
+                <h4>3. Konfirmasi & DP</h4>
+                <p>Admin akan mengirimkan format pemesanan. Lakukan pembayaran DP untuk booking slot.</p>
+            </div>
+            <div class="step-card">
+                <h4>4. Selesai</h4>
+                <p>Alat siap diambil di basecamp atau kumpul di meeting point saat hari H trip.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 KITALETSGO.CO - EST 2024</p>
+            <p>Lokasi: Jakarta Selatan</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
